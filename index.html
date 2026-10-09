@@ -37,4 +37,4 @@ function render(){const t=ui[lang],q=$("search").value.trim().toLowerCase(),kind
 async function init(){try{const res=await fetch("./data/compatibility.json");if(!res.ok)throw new Error("HTTP "+res.status);const data=await res.json();records=data.records||[];text("recordCount",records.length);text("updated",ui[lang].reviewed+" "+data.last_reviewed);render()}catch(e){text("updated",ui[lang].unavailable);$("results").innerHTML='<div class="empty">'+ui[lang].failed+'</div>'}}
 $("language").addEventListener("click",()=>{lang=lang==="zh-CN"?"en":"zh-CN";applyLanguage();if(records.length){const t=ui[lang];text("updated",t.reviewed+" "+$("updated").textContent.split(" ").pop())}});
 ["search","kind","status"].forEach(id=>$(id).addEventListener(id==="search"?"input":"change",render));applyLanguage();init();
-</script></body></html>
+</script><div style="max-width:1120px;margin:0 auto;padding:0 20px 28px"><a href="./upgrade-check.html">试用升级风险检查器 →</a></div></body></html>
