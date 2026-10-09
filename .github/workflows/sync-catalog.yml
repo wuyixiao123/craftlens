@@ -1,4 +1,4 @@
-name: Refresh Modrinth plugin catalog
+name: Refresh Modrinth plugin catalog and deploy site
 
 on:
   schedule:
@@ -11,13 +11,15 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: plugin-catalog-refresh
   cancel-in-progress: false
 
 jobs:
-  refresh:
+  refresh-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -31,7 +33,7 @@ jobs:
       - name: Commit updated catalog
         run: |
           if git diff --quiet -- data/plugin-catalog.json; then
-            echo "Catalog unchanged."
+            echo "Catalog unchanged; no deployment needed."
             exit 0
           fi
           git config user.name "github-actions[bot]"
@@ -39,3 +41,11 @@ jobs:
           git add data/plugin-catalog.json
           git commit -m "chore: refresh Modrinth plugin catalog"
           git push
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload static site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - name: Deploy updated site
+        uses: actions/deploy-pages@v4
