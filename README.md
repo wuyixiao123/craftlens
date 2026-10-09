@@ -1,49 +1,65 @@
 # CraftLens
 
-**Minecraft compatibility, without the guesswork.**
+**先查清兼容性，再升级。** CraftLens 是一个中文优先、支持中英文切换的 Minecraft Java 版兼容性参考站，面向玩家、模组整合包维护者和服务器管理员。
 
-CraftLens is an open-source, source-linked compatibility explorer for Minecraft Java Edition. It helps players and server administrators compare Minecraft versions, Java requirements, server software, and mod-loader ecosystems before upgrading.
+CraftLens 整理 Minecraft 版本、Java 运行环境、服务端软件和模组加载器的基础说明，并为每条参考资料提供上游来源链接。它不是完整的模组兼容性数据库，也不会把未经验证的推测包装成结论。
 
-> **Data integrity first:** CraftLens distinguishes verified facts, community-maintained notes, and unknown compatibility. It does not claim that every mod or plugin has been tested. Always check the upstream project's release notes before upgrading a production server.
+## 在线体验
 
-## What works today
+**网站：** https://wuyixiao123.github.io/craftlens/  
+**源代码与问题反馈：** https://github.com/wuyixiao123/craftlens
 
-- Search and filter a small, curated Minecraft Java version reference.
-- Compare Java runtime guidance and common server / mod-loader considerations.
-- See evidence links and the last review date for each record.
-- Run a local data validation check.
-- Automatically validate the dataset daily with GitHub Actions.
+## 当前功能
 
-## Try it
+- 简体中文为默认语言，可切换到 English。
+- 按关键词搜索 Minecraft 版本、Java、服务端软件和模组加载器。
+- 按类别和证据状态筛选记录。
+- 查看来源链接、核对日期和参考可信度。
+- 响应式布局，适配手机与桌面浏览器。
+- GitHub Actions 定期验证数据格式和来源链接字段结构。
 
-Open the hosted site (after enabling GitHub Pages):  
-**https://wuyixiao123.github.io/craftlens/**
+## 本地运行
 
-Or run locally: download the repository and open `index.html` in a browser. No build step, account, backend, or API key is required.
+需要 Python 3（仅用于启动本地静态服务器和运行验证脚本）：
 
-## Data policy
+```bash
+git clone https://github.com/wuyixiao123/craftlens.git
+cd craftlens
+python -m http.server 8000
+```
 
-- A missing record means **unknown**, not compatible.
-- Compatibility can differ between a project's versions, loader, and dependencies.
-- Every factual record should include an evidence URL and review date.
-- Automation validates structure; it must not invent compatibility results.
-- Do not use this project as the sole basis for a production upgrade. Back up first.
+打开 http://localhost:8000。由于浏览器的本地文件安全限制，请不要直接通过 `file://` 打开页面。
 
-## Contribute
+验证数据结构：
 
-Issues and pull requests are welcome. Please include the exact Minecraft version, Java runtime, server software or loader, affected project version, reproduction steps, and upstream evidence where possible.
+```bash
+python scripts/validate_data.py
+```
 
-See [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), and [LICENSE](LICENSE).
+## 数据原则
 
-## Roadmap
+- 没有记录代表**未知**，不代表兼容。
+- Java 版本匹配不等于模组、插件或服务端一定兼容。
+- 每条事实性记录都应有 HTTPS 来源链接和核对日期。
+- 自动化只检查结构，不生成或猜测兼容性结论。
+- 在生产服务器升级前，请查阅上游发布说明并备份世界存档与配置。
 
-- [x] Searchable, responsive compatibility reference
-- [x] Source links and explicit confidence labels
-- [x] Automated dataset validation
-- [ ] Expand curated version and loader records with upstream evidence
-- [ ] Add a guided server-upgrade checklist
-- [ ] Add a safe, privacy-respecting crash-log helper
+## 参与贡献
 
-## License
+欢迎提交问题、修正和 Pull Request。请尽可能提供准确的 Minecraft 版本、Java 版本、服务端或加载器版本、相关项目版本、复现步骤和上游证据。中文问题和贡献说明同样欢迎。
 
-MIT. See [LICENSE](LICENSE).
+更多信息见 [CONTRIBUTING.md](CONTRIBUTING.md)、[SECURITY.md](SECURITY.md) 和 [LICENSE](LICENSE)。
+
+## 计划
+
+- [x] 响应式兼容性查询页面
+- [x] 简体中文优先和中英文切换
+- [x] 来源链接与明确的证据状态
+- [x] 自动化数据结构验证
+- [ ] 基于上游证据逐步扩充版本与加载器资料
+- [ ] 增加服务器升级检查清单
+- [ ] 增加安全、尊重隐私的崩溃日志辅助工具
+
+## 许可
+
+MIT。详见 [LICENSE](LICENSE)。
