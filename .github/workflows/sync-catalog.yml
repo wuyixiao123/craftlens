@@ -1,0 +1,41 @@
+name: Refresh Modrinth plugin catalog
+
+on:
+  schedule:
+    - cron: "17 5 * * *"
+  workflow_dispatch:
+  push:
+    paths:
+      - "scripts/sync_modrinth_catalog.py"
+      - ".github/workflows/sync-catalog.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: plugin-catalog-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Refresh catalog from Modrinth API
+        run: python scripts/sync_modrinth_catalog.py
+      - name: Commit updated catalog
+        run: |
+          if git diff --quiet -- data/plugin-catalog.json; then
+            echo "Catalog unchanged."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/plugin-catalog.json
+          git commit -m "chore: refresh Modrinth plugin catalog"
+          git push
