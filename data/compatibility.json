@@ -22,7 +22,19 @@
           "url": "https://www.minecraft.net/en-us/article/minecraft-java-edition-1-21-1"
         }
       ],
-      "reviewed": "2026-10-09"
+      "reviewed": "2026-10-09",
+      "localized": {
+        "zh-CN": {
+          "kind": "Minecraft Java 版",
+          "name": "Minecraft Java 版 1.21.1",
+          "java": "Java 21",
+          "summary": "Minecraft Java 版 1.20.5 及后续版本要求 Java 21。本条仅说明基础运行环境，不代表所有模组或服务器插件均兼容。",
+          "labels": [
+            "Minecraft Java 版 1.20.5 发布说明",
+            "Minecraft Java 版 1.21.1 发布说明"
+          ]
+        }
+      }
     },
     {
       "id": "mc-java-1.20.4",
@@ -39,7 +51,18 @@
           "url": "https://www.minecraft.net/en-us/article/minecraft-java-edition-1-20-4"
         }
       ],
-      "reviewed": "2026-10-09"
+      "reviewed": "2026-10-09",
+      "localized": {
+        "zh-CN": {
+          "kind": "Minecraft Java 版",
+          "name": "Minecraft Java 版 1.20.4",
+          "java": "Java 17",
+          "summary": "Java 17 是这一代 Minecraft Java 版常见的运行环境基线。选择运行环境前，请确认具体服务端发行版和模组加载器的要求。",
+          "labels": [
+            "Minecraft Java 版 1.20.4 发布说明"
+          ]
+        }
+      }
     },
     {
       "id": "mc-java-1.19.2",
@@ -56,7 +79,18 @@
           "url": "https://www.minecraft.net/en-us/article/minecraft-java-edition-1-19-2"
         }
       ],
-      "reviewed": "2026-10-09"
+      "reviewed": "2026-10-09",
+      "localized": {
+        "zh-CN": {
+          "kind": "Minecraft Java 版",
+          "name": "Minecraft Java 版 1.19.2",
+          "java": "Java 17",
+          "summary": "Java 17 通常适用于这一版本系列。模组兼容性取决于具体加载器和模组构建版本；本条不代表任何单独模组已通过认证。",
+          "labels": [
+            "Minecraft Java 版 1.19.2 发布说明"
+          ]
+        }
+      }
     },
     {
       "id": "loader-fabric",
@@ -77,7 +111,19 @@
           "url": "https://fabricmc.net/use/installer/"
         }
       ],
-      "reviewed": "2026-10-09"
+      "reviewed": "2026-10-09",
+      "localized": {
+        "zh-CN": {
+          "kind": "模组加载器",
+          "name": "Fabric",
+          "java": "遵循所选 Minecraft 版本的运行环境要求",
+          "summary": "Fabric Loader 与 Fabric API 是两个不同的组件。请确认加载器和每个模组都支持目标游戏版本；不能仅凭加载器判断兼容性。",
+          "labels": [
+            "Fabric 文档",
+            "Fabric 下载"
+          ]
+        }
+      }
     },
     {
       "id": "loader-forge",
@@ -94,7 +140,18 @@
           "url": "https://files.minecraftforge.net/"
         }
       ],
-      "reviewed": "2026-10-09"
+      "reviewed": "2026-10-09",
+      "localized": {
+        "zh-CN": {
+          "kind": "模组加载器",
+          "name": "Minecraft Forge",
+          "java": "遵循目标 Minecraft 版本及 Forge 构建版本的要求",
+          "summary": "Forge 构建版本与 Minecraft 版本相关联。更换服务器前，请核对准确的 Forge 构建版本，以及每个模组支持的游戏版本。",
+          "labels": [
+            "Minecraft Forge 官方网站"
+          ]
+        }
+      }
     },
     {
       "id": "server-paper",
@@ -111,7 +168,18 @@
           "url": "https://docs.papermc.io/"
         }
       ],
-      "reviewed": "2026-10-09"
+      "reviewed": "2026-10-09",
+      "localized": {
+        "zh-CN": {
+          "kind": "服务端软件",
+          "name": "Paper 服务端",
+          "java": "遵循对应 Paper 构建版本的要求",
+          "summary": "Paper 并不保证与所有 Bukkit/Spigot 插件完全兼容。请查看目标 Paper 构建版本和插件文档，尤其注意依赖特定版本 API 的插件。",
+          "labels": [
+            "Paper 官方文档"
+          ]
+        }
+      }
     },
     {
       "id": "server-vanilla",
@@ -128,7 +196,18 @@
           "url": "https://www.minecraft.net/en-us/download/server"
         }
       ],
-      "reviewed": "2026-10-09"
+      "reviewed": "2026-10-09",
+      "localized": {
+        "zh-CN": {
+          "kind": "服务端软件",
+          "name": "原版专用服务器",
+          "java": "遵循对应 Minecraft 服务端版本的运行环境要求",
+          "summary": "请使用与目标版本匹配的服务端 JAR 和 Java 运行环境。升级前先备份世界存档和配置文件。",
+          "labels": [
+            "Minecraft Java 版服务端下载"
+          ]
+        }
+      }
     }
   ]
 }
