@@ -13,12 +13,12 @@ CraftLens 整理 Minecraft 版本、Java 运行环境、服务端软件和模组
 
 - 简体中文为默认语言，可切换到 English。
 - 按关键词搜索 Minecraft 版本、Java、服务端软件和模组加载器。
-- 按类别和证据状态筛选记录。
+- 按类别和证据状态筛选记录。\n- 使用升级风险检查器比较 Modrinth 插件版本、游戏版本支持、加载器、依赖和更新日志。\n- 定时通过 Modrinth 官方 API 更新热门与近期更新插件目录。
 - 查看来源链接、核对日期和参考可信度。
 - 响应式布局，适配手机与桌面浏览器。
 - GitHub Actions 定期验证数据格式和来源链接字段结构。
 
-## 本地运行
+## 升级风险检查器\n\n打开 [`upgrade-check.html`](https://wuyixiao123.github.io/craftlens/upgrade-check.html)，搜索 Modrinth 上的插件并选择旧版本、新版本和目标 Minecraft 版本。检查器仅依据公开元数据提供风险提示；不能证明升级一定安全，也不会下载或执行插件。\n\n热门插件目录由 `scripts/sync_modrinth_catalog.py` 从 Modrinth 官方 API 定时更新，自动任务见 `.github/workflows/sync-catalog.yml`。如果仓库的 GitHub Actions 未获准写入内容，请在仓库 Settings → Actions → General 中允许工作流读写仓库内容。\n\n## 本地运行
 
 需要 Python 3（仅用于启动本地静态服务器和运行验证脚本）：
 
@@ -56,7 +56,7 @@ python scripts/validate_data.py
 - [x] 简体中文优先和中英文切换
 - [x] 来源链接与明确的证据状态
 - [x] 自动化数据结构验证
-- [ ] 基于上游证据逐步扩充版本与加载器资料
+- [x] 插件版本升级风险检查器（基于公开元数据）\n- [x] 定时同步热门与近期更新的插件目录\n- [ ] 基于上游证据逐步扩充版本与加载器资料
 - [ ] 增加服务器升级检查清单
 - [ ] 增加安全、尊重隐私的崩溃日志辅助工具
 
