@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "last_reviewed": "2026-10-09",
+  "disclaimer": "This is a curated starting reference, not an exhaustive compatibility database. Verify upstream release notes before production upgrades.",
+  "records": [
+    {
+      "id": "mc-java-1.21.1",
+      "kind": "Minecraft Java Edition",
+      "name": "Minecraft Java Edition 1.21.1",
+      "version": "1.21.1",
+      "java": "Java 21",
+      "status": "documented",
+      "confidence": "high",
+      "summary": "Minecraft Java Edition 1.20.5 and later require Java 21. This record is a baseline runtime reference, not a guarantee that every mod or server plugin is compatible.",
+      "evidence": [
+        {
+          "label": "Minecraft Java Edition 1.20.5 release notes",
+          "url": "https://www.minecraft.net/en-us/article/minecraft-java-edition-1-20-5"
+        },
+        {
+          "label": "Minecraft Java Edition 1.21.1 release notes",
+          "url": "https://www.minecraft.net/en-us/article/minecraft-java-edition-1-21-1"
+        }
+      ],
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "mc-java-1.20.4",
+      "kind": "Minecraft Java Edition",
+      "name": "Minecraft Java Edition 1.20.4",
+      "version": "1.20.4",
+      "java": "Java 17",
+      "status": "documented",
+      "confidence": "high",
+      "summary": "Java 17 is the common runtime baseline for this generation of Minecraft Java Edition. Check the exact server distribution and mod-loader requirements before choosing a runtime.",
+      "evidence": [
+        {
+          "label": "Minecraft Java Edition 1.20.4 release notes",
+          "url": "https://www.minecraft.net/en-us/article/minecraft-java-edition-1-20-4"
+        }
+      ],
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "mc-java-1.19.2",
+      "kind": "Minecraft Java Edition",
+      "name": "Minecraft Java Edition 1.19.2",
+      "version": "1.19.2",
+      "java": "Java 17",
+      "status": "documented",
+      "confidence": "medium",
+      "summary": "Java 17 is the typical runtime for this version family. Mod compatibility depends on the exact loader and mod build; this record does not certify individual mods.",
+      "evidence": [
+        {
+          "label": "Minecraft Java Edition 1.19.2 release notes",
+          "url": "https://www.minecraft.net/en-us/article/minecraft-java-edition-1-19-2"
+        }
+      ],
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "loader-fabric",
+      "kind": "Mod loader",
+      "name": "Fabric",
+      "version": "Varies by Minecraft version",
+      "java": "Follow the selected Minecraft version's runtime requirement",
+      "status": "verify-upstream",
+      "confidence": "medium",
+      "summary": "Fabric Loader and Fabric API are separate components. Confirm both the loader and each mod support the exact game version; do not infer compatibility from the loader alone.",
+      "evidence": [
+        {
+          "label": "Fabric documentation",
+          "url": "https://fabricmc.net/wiki/"
+        },
+        {
+          "label": "Fabric downloads",
+          "url": "https://fabricmc.net/use/installer/"
+        }
+      ],
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "loader-forge",
+      "kind": "Mod loader",
+      "name": "Minecraft Forge",
+      "version": "Varies by Minecraft version",
+      "java": "Follow the selected Minecraft version and Forge build requirements",
+      "status": "verify-upstream",
+      "confidence": "medium",
+      "summary": "Forge builds are tied to Minecraft versions. Verify the exact Forge build and each mod's supported game version before changing a server.",
+      "evidence": [
+        {
+          "label": "Minecraft Forge",
+          "url": "https://files.minecraftforge.net/"
+        }
+      ],
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "server-paper",
+      "kind": "Server software",
+      "name": "Paper",
+      "version": "Varies by Minecraft version",
+      "java": "Follow Paper's requirements for the exact build",
+      "status": "verify-upstream",
+      "confidence": "medium",
+      "summary": "Paper is not a drop-in guarantee for every Bukkit/Spigot plugin. Check the target Paper build and plugin documentation, especially for version-sensitive APIs.",
+      "evidence": [
+        {
+          "label": "Paper documentation",
+          "url": "https://docs.papermc.io/"
+        }
+      ],
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "server-vanilla",
+      "kind": "Server software",
+      "name": "Vanilla dedicated server",
+      "version": "Varies by Minecraft version",
+      "java": "Follow the matching Minecraft server release requirement",
+      "status": "verify-upstream",
+      "confidence": "medium",
+      "summary": "Use the server jar and Java runtime appropriate to the exact release. Back up worlds and configuration before updating.",
+      "evidence": [
+        {
+          "label": "Minecraft Java Edition downloads",
+          "url": "https://www.minecraft.net/en-us/download/server"
+        }
+      ],
+      "reviewed": "2026-10-09"
+    }
+  ]
+}
