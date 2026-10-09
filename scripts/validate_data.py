@@ -53,7 +53,7 @@ def main() -> None:
             if not evidence.get("label") or parsed.scheme != "https" or not parsed.netloc:
                 fail(f"{prefix}.evidence[{j}] must have a label and HTTPS URL")
     html = (ROOT / "index.html").read_text(encoding="utf-8")
-    if not re.search(r'fetch\(["\']\.\/data\/compatibility\.json["\']\)', html):
+    if 'fetch("./data/compatibility.json")' not in html:
         fail("index.html does not load the expected dataset")
     print(f"OK: {len(records)} records, unique IDs, dates, evidence URLs, and app data path validated.")
 
